@@ -1,0 +1,105 @@
+/* General body */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  background: url('assets/background.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Overlay for soft background */
+.background-overlay {
+  position: absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(255,192,203,0.25); /* soft pink overlay */
+  z-index:1;
+  backdrop-filter: blur(3px);
+}
+
+/* Centered text */
+.center-text {
+  position: relative;
+  z-index:2;
+  text-align: center;
+  color: #ff2d84;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 12px 35px rgba(255,45,132,0.3);
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(4px);
+}
+
+/* Animated text */
+.animate-text {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards;
+}
+.delay1 { animation-delay: 0.5s; }
+.delay2 { animation-delay: 1s; }
+.delay3 { animation-delay: 1.5s; }
+
+@keyframes fadeUp {
+  to { opacity:1; transform: translateY(0); }
+}
+
+/* Main heading font */
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin-bottom: 20px;
+}
+
+/* Paragraphs */
+p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+/* Glowing button */
+.glow-btn {
+  background: linear-gradient(45deg,#ff79c6,#ff3c96);
+  border: none;
+  padding: 15px 30px;
+  border-radius: 30px;
+  color:white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255,60,150,0.5);
+}
+.glow-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(255,60,150,0.8);
+}
+
+/* Floating hearts */
+.hearts-container {
+  position: absolute;
+  bottom:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:1;
+}
+.hearts-container .heart {
+  position:absolute;
+  width:30px;
+  height:30px;
+  background: url('assets/heart.png') no-repeat center center;
+  background-size: contain;
+  animation: floatHeart 6s linear infinite;
+}
+@keyframes floatHeart {
+  0% { transform: translateY(100vh) scale(0.5); opacity:0.6; }
+  50% { opacity:1; }
+  100% { transform: translateY(-50px) scale(1); opacity:0; }
+}

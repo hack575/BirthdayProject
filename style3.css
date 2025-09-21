@@ -1,0 +1,112 @@
+body {
+  margin:0;
+  padding:0;
+  font-family:'Poppins', sans-serif;
+  background:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  overflow:hidden;
+}
+
+.container {
+  text-align:center;
+}
+
+h2 {
+  color:#ff2d84;
+  margin-bottom:20px;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 3D scene */
+#scene {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateY(0deg);
+  transition: transform 0.1s linear;
+  margin:0 auto;
+}
+
+/* Photo cards */
+.photo {
+  position: absolute;
+  width: 120px;  /* ya landscape width adjust kar sakte ho */
+  height: 120px;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: rotateY(calc(var(--i) * 45deg)) translateZ(250px) translate(-50%, -50%);
+}
+
+.photo img {
+  width:100%;
+  height:100%;
+  border-radius:20px;
+  box-shadow:0 8px 25px rgba(255,45,132,0.2); /* soft pink shadow for cute vibe */
+  object-fit:cover;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.photo img:hover {
+  transform: scale(1.1);
+  box-shadow:0 12px 30px rgba(255,45,132,0.3);
+}
+
+/* Confetti canvas */
+#confetti {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
+
+/* Title container for gif + text */
+.title-container {
+  position: absolute;
+  top: 20px;
+  display: flex;
+  flex-direction: column; /* gif upar, text neeche */
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
+}
+
+/* GIF size for title */
+.title-container .title-gif {
+  width: 100px;   /* pehle 50px tha, ab bada kiya */
+  height: auto;
+}
+
+/* Center Slot – GIF + "I ❤️ You My Wifee" */
+.center-slot {
+  position: absolute;
+  top: 20px;        /* page ke top se thoda niche */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* GIF upar, text neeche */
+  align-items: center;
+  gap: 10px;             /* GIF aur text ke beech gap */
+  z-index: 10;
+}
+
+
+.center-slot .gif {
+  width: 180px;   /* GIF size bada kiya */
+  height: auto;
+}
+
+.center-slot p {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff4da6;
+  text-shadow: 0 0 10px #ff99cc, 0 0 20px #ff4da6;
+  margin: 0;
+}
